@@ -1,0 +1,836 @@
+{
+  "dataset": {
+    "raw_rows": 100000,
+    "clean_rows": 99972,
+    "machines": 50,
+    "operation_modes": [
+      "Active",
+      "Idle",
+      "Maintenance"
+    ],
+    "start": "2025-01-01 00:00:00",
+    "end": "2025-03-10 10:39:00",
+    "capture_blocks": [
+      [
+        "2025-01-01 00:00:00",
+        "2025-03-01 23:59:00",
+        86400
+      ],
+      [
+        "2025-03-01 00:00:00",
+        "2025-03-10 10:39:00",
+        13600
+      ]
+    ],
+    "overlapping_window": [
+      "2025-03-01 00:00:00",
+      "2025-03-01 23:59:00"
+    ],
+    "duplicate_timestamps": 2880,
+    "duplicate_machine_timestamps": 56,
+    "missing_values": {
+      "Temperature_C": 0,
+      "Vibration_Hz": 0,
+      "Power_Consumption_kW": 0,
+      "Network_Latency_ms": 0,
+      "Packet_Loss_%": 0,
+      "Quality_Control_Defect_Rate_%": 0,
+      "Production_Speed_units_per_hr": 0,
+      "Predictive_Maintenance_Score": 0,
+      "Error_Rate_%": 0
+    },
+    "out_of_range": {
+      "Temperature_C": 0,
+      "Vibration_Hz": 0,
+      "Power_Consumption_kW": 0,
+      "Network_Latency_ms": 0,
+      "Packet_Loss_%": 0,
+      "Quality_Control_Defect_Rate_%": 0,
+      "Production_Speed_units_per_hr": 0,
+      "Predictive_Maintenance_Score": 0,
+      "Error_Rate_%": 0
+    }
+  },
+  "kpis": {
+    "machine_health_index": 87.4998114872164,
+    "avg_production_speed": 275.91036117112793,
+    "defect_density": 13.802178399951986,
+    "error_frequency_index": 7.504032639138958,
+    "good_units_per_hr": 262.1081827711759,
+    "high_pct": 2.986836314167967,
+    "medium_pct": 19.18737246429,
+    "low_pct": 77.82579122154203,
+    "machines": 50,
+    "readings": 99972,
+    "breach_rate": 92.610931060697,
+    "network_degraded_pct": 43.8502780778618
+  },
+  "label_rule": {
+    "agreement": 0.9999799943984315,
+    "exceptions": 2,
+    "tree_accuracy": 0.9999199775937262,
+    "tree_balanced_accuracy": 0.99948425378027,
+    "tree_rules": "|--- Error_Rate_% <= 5.00\n|   |--- Production_Speed_units_per_hr <= 200.00\n|   |   |--- class: Low\n|   |--- Production_Speed_units_per_hr >  200.00\n|   |   |--- Production_Speed_units_per_hr <= 400.17\n|   |   |   |--- class: Medium\n|   |   |--- Production_Speed_units_per_hr >  400.17\n|   |   |   |--- Error_Rate_% <= 2.00\n|   |   |   |   |--- class: High\n|   |   |   |--- Error_Rate_% >  2.00\n|   |   |   |   |--- class: Medium\n|--- Error_Rate_% >  5.00\n|   |--- class: Low"
+  },
+  "uniformity_tests": [
+    {
+      "Sensor": "Temperature_C",
+      "Min": 30.0,
+      "Max": 89.999,
+      "Mean": 60.043,
+      "Std": 17.323,
+      "Skew": -0.001,
+      "Kurtosis": -1.1958,
+      "KS_D": 0.00202,
+      "p_value": 0.8082,
+      "Uniform_at_5pct": true
+    },
+    {
+      "Sensor": "Vibration_Hz",
+      "Min": 0.1,
+      "Max": 5.0,
+      "Mean": 2.55,
+      "Std": 1.414,
+      "Skew": 0.0,
+      "Kurtosis": -1.2025,
+      "KS_D": 0.00193,
+      "p_value": 0.85,
+      "Uniform_at_5pct": true
+    },
+    {
+      "Sensor": "Power_Consumption_kW",
+      "Min": 1.5,
+      "Max": 10.0,
+      "Mean": 5.746,
+      "Std": 2.451,
+      "Skew": -0.0009,
+      "Kurtosis": -1.1977,
+      "KS_D": 0.0021,
+      "p_value": 0.7695,
+      "Uniform_at_5pct": true
+    },
+    {
+      "Sensor": "Network_Latency_ms",
+      "Min": 1.0,
+      "Max": 50.0,
+      "Mean": 25.556,
+      "Std": 14.121,
+      "Skew": -0.0008,
+      "Kurtosis": -1.1949,
+      "KS_D": 0.00305,
+      "p_value": 0.3089,
+      "Uniform_at_5pct": true
+    },
+    {
+      "Sensor": "Packet_Loss_%",
+      "Min": 0.0,
+      "Max": 5.0,
+      "Mean": 2.493,
+      "Std": 1.443,
+      "Skew": 0.0083,
+      "Kurtosis": -1.1954,
+      "KS_D": 0.00351,
+      "p_value": 0.1696,
+      "Uniform_at_5pct": true
+    },
+    {
+      "Sensor": "Quality_Control_Defect_Rate_%",
+      "Min": 0.0,
+      "Max": 10.0,
+      "Mean": 5.009,
+      "Std": 2.884,
+      "Skew": 0.0004,
+      "Kurtosis": -1.201,
+      "KS_D": 0.00272,
+      "p_value": 0.4496,
+      "Uniform_at_5pct": true
+    },
+    {
+      "Sensor": "Production_Speed_units_per_hr",
+      "Min": 50.0,
+      "Max": 499.997,
+      "Mean": 275.91,
+      "Std": 130.098,
+      "Skew": -0.0101,
+      "Kurtosis": -1.2049,
+      "KS_D": 0.00475,
+      "p_value": 0.0218,
+      "Uniform_at_5pct": false
+    },
+    {
+      "Sensor": "Predictive_Maintenance_Score",
+      "Min": 0.0,
+      "Max": 1.0,
+      "Mean": 0.499,
+      "Std": 0.289,
+      "Skew": 0.0028,
+      "Kurtosis": -1.1998,
+      "KS_D": 0.00282,
+      "p_value": 0.4051,
+      "Uniform_at_5pct": true
+    },
+    {
+      "Sensor": "Error_Rate_%",
+      "Min": 0.0,
+      "Max": 15.0,
+      "Mean": 7.504,
+      "Std": 4.336,
+      "Skew": 0.0009,
+      "Kurtosis": -1.201,
+      "KS_D": 0.00207,
+      "p_value": 0.7855,
+      "Uniform_at_5pct": true
+    }
+  ],
+  "independence_tests": [
+    {
+      "Factor": "Machine_ID",
+      "Chi2": 90.008,
+      "dof": 98,
+      "p_value": 0.7051,
+      "Cramers_V": 0.0212,
+      "Association": "none (not significant)"
+    },
+    {
+      "Factor": "Operation_Mode",
+      "Chi2": 3.547,
+      "dof": 4,
+      "p_value": 0.4708,
+      "Cramers_V": 0.0042,
+      "Association": "none (not significant)"
+    },
+    {
+      "Factor": "Shift",
+      "Chi2": 5.186,
+      "dof": 4,
+      "p_value": 0.2688,
+      "Cramers_V": 0.0051,
+      "Association": "none (not significant)"
+    },
+    {
+      "Factor": "DayOfWeek",
+      "Chi2": 5.283,
+      "dof": 12,
+      "p_value": 0.9479,
+      "Cramers_V": 0.0051,
+      "Association": "none (not significant)"
+    }
+  ],
+  "anova": [
+    {
+      "Sensor": "Error_Rate_%",
+      "F": 31101.008,
+      "p_value": 0.0,
+      "Eta_Squared": 0.38356,
+      "Variance_Explained_%": 38.356
+    },
+    {
+      "Sensor": "Production_Speed_units_per_hr",
+      "F": 6354.44,
+      "p_value": 0.0,
+      "Eta_Squared": 0.11279,
+      "Variance_Explained_%": 11.279
+    },
+    {
+      "Sensor": "Quality_Control_Defect_Rate_%",
+      "F": 1.85,
+      "p_value": 0.1573,
+      "Eta_Squared": 4e-05,
+      "Variance_Explained_%": 0.004
+    },
+    {
+      "Sensor": "Packet_Loss_%",
+      "F": 1.054,
+      "p_value": 0.3484,
+      "Eta_Squared": 2e-05,
+      "Variance_Explained_%": 0.002
+    },
+    {
+      "Sensor": "Temperature_C",
+      "F": 0.729,
+      "p_value": 0.4822,
+      "Eta_Squared": 1e-05,
+      "Variance_Explained_%": 0.001
+    },
+    {
+      "Sensor": "Power_Consumption_kW",
+      "F": 0.627,
+      "p_value": 0.534,
+      "Eta_Squared": 1e-05,
+      "Variance_Explained_%": 0.001
+    },
+    {
+      "Sensor": "Network_Latency_ms",
+      "F": 0.381,
+      "p_value": 0.6832,
+      "Eta_Squared": 1e-05,
+      "Variance_Explained_%": 0.001
+    },
+    {
+      "Sensor": "Predictive_Maintenance_Score",
+      "F": 0.582,
+      "p_value": 0.559,
+      "Eta_Squared": 1e-05,
+      "Variance_Explained_%": 0.001
+    },
+    {
+      "Sensor": "Vibration_Hz",
+      "F": 0.015,
+      "p_value": 0.9853,
+      "Eta_Squared": 0.0,
+      "Variance_Explained_%": 0.0
+    }
+  ],
+  "top_correlations": [
+    {
+      "Sensor_A": "Vibration_Hz",
+      "Sensor_B": "Network_Latency_ms",
+      "Pearson_r": 0.00752,
+      "Abs_r": 0.00752,
+      "p_value": 0.0175,
+      "R_Squared_%": 0.0056
+    },
+    {
+      "Sensor_A": "Packet_Loss_%",
+      "Sensor_B": "Production_Speed_units_per_hr",
+      "Pearson_r": -0.00709,
+      "Abs_r": 0.00709,
+      "p_value": 0.0249,
+      "R_Squared_%": 0.005
+    },
+    {
+      "Sensor_A": "Network_Latency_ms",
+      "Sensor_B": "Packet_Loss_%",
+      "Pearson_r": -0.00694,
+      "Abs_r": 0.00694,
+      "p_value": 0.0282,
+      "R_Squared_%": 0.0048
+    },
+    {
+      "Sensor_A": "Production_Speed_units_per_hr",
+      "Sensor_B": "Error_Rate_%",
+      "Pearson_r": 0.00609,
+      "Abs_r": 0.00609,
+      "p_value": 0.0543,
+      "R_Squared_%": 0.0037
+    },
+    {
+      "Sensor_A": "Vibration_Hz",
+      "Sensor_B": "Power_Consumption_kW",
+      "Pearson_r": 0.00536,
+      "Abs_r": 0.00536,
+      "p_value": 0.0902,
+      "R_Squared_%": 0.0029
+    },
+    {
+      "Sensor_A": "Packet_Loss_%",
+      "Sensor_B": "Quality_Control_Defect_Rate_%",
+      "Pearson_r": -0.00493,
+      "Abs_r": 0.00493,
+      "p_value": 0.1189,
+      "R_Squared_%": 0.0024
+    },
+    {
+      "Sensor_A": "Quality_Control_Defect_Rate_%",
+      "Sensor_B": "Production_Speed_units_per_hr",
+      "Pearson_r": -0.00487,
+      "Abs_r": 0.00487,
+      "p_value": 0.1238,
+      "R_Squared_%": 0.0024
+    },
+    {
+      "Sensor_A": "Temperature_C",
+      "Sensor_B": "Power_Consumption_kW",
+      "Pearson_r": 0.00463,
+      "Abs_r": 0.00463,
+      "p_value": 0.1429,
+      "R_Squared_%": 0.0021
+    },
+    {
+      "Sensor_A": "Vibration_Hz",
+      "Sensor_B": "Error_Rate_%",
+      "Pearson_r": 0.0046,
+      "Abs_r": 0.0046,
+      "p_value": 0.1457,
+      "R_Squared_%": 0.0021
+    },
+    {
+      "Sensor_A": "Predictive_Maintenance_Score",
+      "Sensor_B": "Error_Rate_%",
+      "Pearson_r": 0.00448,
+      "Abs_r": 0.00448,
+      "p_value": 0.1567,
+      "R_Squared_%": 0.002
+    }
+  ],
+  "max_abs_correlation": 0.00752,
+  "binomial_homogeneity": {
+    "High": {
+      "status": "High",
+      "overall_rate_pct": 2.986836314167967,
+      "observed_sd_pp": 0.34536286300163654,
+      "binomial_expected_sd_pp": 0.38068595748738354,
+      "ratio": 0.9072119846004101,
+      "min_pct": 2.3183925811437405,
+      "max_pct": 3.679435483870968
+    },
+    "Low": {
+      "status": "Low",
+      "overall_rate_pct": 77.82579122154203,
+      "observed_sd_pp": 0.9852829782929521,
+      "binomial_expected_sd_pp": 0.9290340901511435,
+      "ratio": 1.060545558810073,
+      "min_pct": 76.09137055837564,
+      "max_pct": 80.42704626334519
+    }
+  },
+  "ablation": [
+    {
+      "Feature set": "Majority-class baseline",
+      "n_features": 0,
+      "Accuracy": 0.7783,
+      "Balanced accuracy": 0.3333,
+      "Macro F1": 0.2918,
+      "Beats baseline": "reference"
+    },
+    {
+      "Feature set": "All 9 numeric columns",
+      "n_features": 9,
+      "Accuracy": 1.0,
+      "Balanced accuracy": 1.0,
+      "Macro F1": 1.0,
+      "Beats baseline": "yes"
+    },
+    {
+      "Feature set": "7 physical/network sensors only",
+      "n_features": 7,
+      "Accuracy": 0.7782,
+      "Balanced accuracy": 0.3333,
+      "Macro F1": 0.2918,
+      "Beats baseline": "no"
+    },
+    {
+      "Feature set": "Throughput + error rate only",
+      "n_features": 2,
+      "Accuracy": 0.9999,
+      "Balanced accuracy": 0.9995,
+      "Macro F1": 0.9995,
+      "Beats baseline": "yes"
+    },
+    {
+      "Feature set": "Temperature + vibration + power",
+      "n_features": 3,
+      "Accuracy": 0.7753,
+      "Balanced accuracy": 0.333,
+      "Macro F1": 0.2936,
+      "Beats baseline": "no"
+    },
+    {
+      "Feature set": "6G network quality only",
+      "n_features": 2,
+      "Accuracy": 0.7638,
+      "Balanced accuracy": 0.3333,
+      "Macro F1": 0.3031,
+      "Beats baseline": "no"
+    }
+  ],
+  "mutual_information": [
+    {
+      "Feature": "Error_Rate_%",
+      "Mutual_Information_bits": 0.3487
+    },
+    {
+      "Feature": "Production_Speed_units_per_hr",
+      "Mutual_Information_bits": 0.1436
+    },
+    {
+      "Feature": "Packet_Loss_%",
+      "Mutual_Information_bits": 0.0016
+    },
+    {
+      "Feature": "Vibration_Hz",
+      "Mutual_Information_bits": 0.0015
+    },
+    {
+      "Feature": "Predictive_Maintenance_Score",
+      "Mutual_Information_bits": 0.0009
+    },
+    {
+      "Feature": "Network_Latency_ms",
+      "Mutual_Information_bits": 0.0005
+    },
+    {
+      "Feature": "Temperature_C",
+      "Mutual_Information_bits": 0.0
+    },
+    {
+      "Feature": "Power_Consumption_kW",
+      "Mutual_Information_bits": 0.0
+    },
+    {
+      "Feature": "Quality_Control_Defect_Rate_%",
+      "Mutual_Information_bits": 0.0
+    }
+  ],
+  "permutation_check": {
+    "real_label_accuracy": 0.7782179010122834,
+    "shuffled_label_accuracy_mean": 0.7782445751477081,
+    "shuffled_label_accuracy_std": 1.8861462041024216e-05,
+    "difference": -2.6674135424675782e-05
+  },
+  "threshold_exposure": [
+    {
+      "Sensor": "Maintenance score",
+      "Column": "Predictive_Maintenance_Score",
+      "Warning_Threshold": 0.25,
+      "Unit": "",
+      "Direction": "below",
+      "Readings_Near_Limit": 25223,
+      "Share_%": 25.23,
+      "Mean": 0.499,
+      "P95": 0.951
+    },
+    {
+      "Sensor": "Error rate",
+      "Column": "Error_Rate_%",
+      "Warning_Threshold": 11.27,
+      "Unit": "%",
+      "Direction": "above",
+      "Readings_Near_Limit": 25021,
+      "Share_%": 25.03,
+      "Mean": 7.504,
+      "P95": 14.28
+    },
+    {
+      "Sensor": "Packet loss",
+      "Column": "Packet_Loss_%",
+      "Warning_Threshold": 3.74,
+      "Unit": "%",
+      "Direction": "above",
+      "Readings_Near_Limit": 25021,
+      "Share_%": 25.03,
+      "Mean": 2.493,
+      "P95": 4.755
+    },
+    {
+      "Sensor": "Production speed",
+      "Column": "Production_Speed_units_per_hr",
+      "Warning_Threshold": 162.9,
+      "Unit": "units/hr",
+      "Direction": "below",
+      "Readings_Near_Limit": 25000,
+      "Share_%": 25.01,
+      "Mean": 275.91,
+      "P95": 477.72
+    },
+    {
+      "Sensor": "Power draw",
+      "Column": "Power_Consumption_kW",
+      "Warning_Threshold": 7.86,
+      "Unit": "kW",
+      "Direction": "above",
+      "Readings_Near_Limit": 25007,
+      "Share_%": 25.01,
+      "Mean": 5.746,
+      "P95": 9.567
+    },
+    {
+      "Sensor": "6G latency",
+      "Column": "Network_Latency_ms",
+      "Warning_Threshold": 37.8,
+      "Unit": "ms",
+      "Direction": "above",
+      "Readings_Near_Limit": 24985,
+      "Share_%": 24.99,
+      "Mean": 25.556,
+      "P95": 47.584
+    },
+    {
+      "Sensor": "Temperature",
+      "Column": "Temperature_C",
+      "Warning_Threshold": 75.0,
+      "Unit": "\u00b0C",
+      "Direction": "above",
+      "Readings_Near_Limit": 24949,
+      "Share_%": 24.96,
+      "Mean": 60.043,
+      "P95": 87.078
+    },
+    {
+      "Sensor": "Defect rate",
+      "Column": "Quality_Control_Defect_Rate_%",
+      "Warning_Threshold": 7.51,
+      "Unit": "%",
+      "Direction": "above",
+      "Readings_Near_Limit": 24953,
+      "Share_%": 24.96,
+      "Mean": 5.009,
+      "P95": 9.5
+    },
+    {
+      "Sensor": "Vibration",
+      "Column": "Vibration_Hz",
+      "Warning_Threshold": 3.78,
+      "Unit": "Hz",
+      "Direction": "above",
+      "Readings_Near_Limit": 24929,
+      "Share_%": 24.94,
+      "Mean": 2.55,
+      "P95": 4.757
+    }
+  ],
+  "machine_scorecard_extremes": {
+    "worst_health": [
+      {
+        "Machine_ID": 8,
+        "Readings": 1967,
+        "Health_Index": 86.884,
+        "Health_Index_P05": 57.32,
+        "Avg_Temperature": 60.173,
+        "Avg_Vibration": 2.554,
+        "Avg_Power": 5.784,
+        "Avg_Production_Speed": 276.049,
+        "Speed_Std": 133.631,
+        "Defect_Rate": 5.071,
+        "Defect_Density": 13.922,
+        "Error_Frequency": 7.615,
+        "Maintenance_Score": 0.503,
+        "Avg_Latency": 25.426,
+        "Avg_Packet_Loss": 2.489,
+        "Breach_Rate": 93.594,
+        "Good_Units": 262.127,
+        "High_Pct": 2.745,
+        "Medium_Pct": 16.828,
+        "Low_Pct": 80.427,
+        "Speed_CV": 48.409
+      },
+      {
+        "Machine_ID": 3,
+        "Readings": 2001,
+        "Health_Index": 86.967,
+        "Health_Index_P05": 55.882,
+        "Avg_Temperature": 59.411,
+        "Avg_Vibration": 2.604,
+        "Avg_Power": 5.912,
+        "Avg_Production_Speed": 278.818,
+        "Speed_Std": 127.88,
+        "Defect_Rate": 5.048,
+        "Defect_Density": 14.037,
+        "Error_Frequency": 7.599,
+        "Maintenance_Score": 0.489,
+        "Avg_Latency": 26.008,
+        "Avg_Packet_Loss": 2.5,
+        "Breach_Rate": 92.504,
+        "Good_Units": 264.781,
+        "High_Pct": 2.799,
+        "Medium_Pct": 18.541,
+        "Low_Pct": 78.661,
+        "Speed_CV": 45.865
+      },
+      {
+        "Machine_ID": 33,
+        "Readings": 1956,
+        "Health_Index": 86.973,
+        "Health_Index_P05": 55.763,
+        "Avg_Temperature": 60.988,
+        "Avg_Vibration": 2.555,
+        "Avg_Power": 5.799,
+        "Avg_Production_Speed": 274.861,
+        "Speed_Std": 129.327,
+        "Defect_Rate": 5.052,
+        "Defect_Density": 13.757,
+        "Error_Frequency": 7.44,
+        "Maintenance_Score": 0.501,
+        "Avg_Latency": 25.375,
+        "Avg_Packet_Loss": 2.469,
+        "Breach_Rate": 92.536,
+        "Good_Units": 261.104,
+        "High_Pct": 2.71,
+        "Medium_Pct": 19.274,
+        "Low_Pct": 78.016,
+        "Speed_CV": 47.052
+      },
+      {
+        "Machine_ID": 16,
+        "Readings": 2008,
+        "Health_Index": 86.987,
+        "Health_Index_P05": 56.36,
+        "Avg_Temperature": 60.51,
+        "Avg_Vibration": 2.555,
+        "Avg_Power": 5.81,
+        "Avg_Production_Speed": 284.798,
+        "Speed_Std": 129.724,
+        "Defect_Rate": 5.022,
+        "Defect_Density": 14.332,
+        "Error_Frequency": 7.505,
+        "Maintenance_Score": 0.494,
+        "Avg_Latency": 25.925,
+        "Avg_Packet_Loss": 2.51,
+        "Breach_Rate": 93.277,
+        "Good_Units": 270.465,
+        "High_Pct": 3.187,
+        "Medium_Pct": 20.618,
+        "Low_Pct": 76.195,
+        "Speed_CV": 45.55
+      },
+      {
+        "Machine_ID": 17,
+        "Readings": 2061,
+        "Health_Index": 86.994,
+        "Health_Index_P05": 58.464,
+        "Avg_Temperature": 60.537,
+        "Avg_Vibration": 2.555,
+        "Avg_Power": 5.758,
+        "Avg_Production_Speed": 270.802,
+        "Speed_Std": 127.496,
+        "Defect_Rate": 5.026,
+        "Defect_Density": 13.561,
+        "Error_Frequency": 7.508,
+        "Maintenance_Score": 0.499,
+        "Avg_Latency": 25.556,
+        "Avg_Packet_Loss": 2.507,
+        "Breach_Rate": 93.159,
+        "Good_Units": 257.241,
+        "High_Pct": 2.863,
+        "Medium_Pct": 18.68,
+        "Low_Pct": 78.457,
+        "Speed_CV": 47.081
+      }
+    ],
+    "best_health": [
+      {
+        "Machine_ID": 29,
+        "Readings": 2044,
+        "Health_Index": 87.916,
+        "Health_Index_P05": 59.2,
+        "Avg_Temperature": 60.57,
+        "Avg_Vibration": 2.505,
+        "Avg_Power": 5.662,
+        "Avg_Production_Speed": 273.272,
+        "Speed_Std": 127.562,
+        "Defect_Rate": 4.899,
+        "Defect_Density": 13.449,
+        "Error_Frequency": 7.648,
+        "Maintenance_Score": 0.504,
+        "Avg_Latency": 25.286,
+        "Avg_Packet_Loss": 2.481,
+        "Breach_Rate": 92.27,
+        "Good_Units": 259.823,
+        "High_Pct": 2.691,
+        "Medium_Pct": 19.129,
+        "Low_Pct": 78.18,
+        "Speed_CV": 46.679
+      },
+      {
+        "Machine_ID": 12,
+        "Readings": 1953,
+        "Health_Index": 87.971,
+        "Health_Index_P05": 60.051,
+        "Avg_Temperature": 59.868,
+        "Avg_Vibration": 2.499,
+        "Avg_Power": 5.71,
+        "Avg_Production_Speed": 273.805,
+        "Speed_Std": 133.162,
+        "Defect_Rate": 5.014,
+        "Defect_Density": 13.836,
+        "Error_Frequency": 7.478,
+        "Maintenance_Score": 0.5,
+        "Avg_Latency": 25.706,
+        "Avg_Packet_Loss": 2.498,
+        "Breach_Rate": 92.115,
+        "Good_Units": 259.969,
+        "High_Pct": 2.611,
+        "Medium_Pct": 19.816,
+        "Low_Pct": 77.573,
+        "Speed_CV": 48.634
+      },
+      {
+        "Machine_ID": 28,
+        "Readings": 2047,
+        "Health_Index": 88.055,
+        "Health_Index_P05": 58.263,
+        "Avg_Temperature": 59.786,
+        "Avg_Vibration": 2.516,
+        "Avg_Power": 5.657,
+        "Avg_Production_Speed": 274.11,
+        "Speed_Std": 128.049,
+        "Defect_Rate": 4.953,
+        "Defect_Density": 13.533,
+        "Error_Frequency": 7.528,
+        "Maintenance_Score": 0.493,
+        "Avg_Latency": 25.751,
+        "Avg_Packet_Loss": 2.446,
+        "Breach_Rate": 92.623,
+        "Good_Units": 260.577,
+        "High_Pct": 2.687,
+        "Medium_Pct": 18.564,
+        "Low_Pct": 78.749,
+        "Speed_CV": 46.714
+      },
+      {
+        "Machine_ID": 18,
+        "Readings": 2030,
+        "Health_Index": 88.136,
+        "Health_Index_P05": 60.351,
+        "Avg_Temperature": 59.89,
+        "Avg_Vibration": 2.541,
+        "Avg_Power": 5.678,
+        "Avg_Production_Speed": 275.629,
+        "Speed_Std": 130.233,
+        "Defect_Rate": 5.056,
+        "Defect_Density": 14.069,
+        "Error_Frequency": 7.456,
+        "Maintenance_Score": 0.5,
+        "Avg_Latency": 25.658,
+        "Avg_Packet_Loss": 2.471,
+        "Breach_Rate": 92.266,
+        "Good_Units": 261.559,
+        "High_Pct": 3.005,
+        "Medium_Pct": 18.128,
+        "Low_Pct": 78.867,
+        "Speed_CV": 47.25
+      },
+      {
+        "Machine_ID": 35,
+        "Readings": 1913,
+        "Health_Index": 88.149,
+        "Health_Index_P05": 60.04,
+        "Avg_Temperature": 59.952,
+        "Avg_Vibration": 2.518,
+        "Avg_Power": 5.691,
+        "Avg_Production_Speed": 273.691,
+        "Speed_Std": 131.59,
+        "Defect_Rate": 4.983,
+        "Defect_Density": 13.681,
+        "Error_Frequency": 7.446,
+        "Maintenance_Score": 0.499,
+        "Avg_Latency": 25.463,
+        "Avg_Packet_Loss": 2.46,
+        "Breach_Rate": 91.898,
+        "Good_Units": 260.01,
+        "High_Pct": 3.032,
+        "Medium_Pct": 18.557,
+        "Low_Pct": 78.411,
+        "Speed_CV": 48.08
+      }
+    ],
+    "health_spread_pp": 1.2650000000000006
+  },
+  "control_limit_outliers": {
+    "Health_Index": [],
+    "Avg_Production_Speed": [],
+    "Error_Frequency": [],
+    "Defect_Density": []
+  },
+  "figures": {
+    "sensor_distributions": "reports/figures/01_sensor_distributions.png",
+    "correlation_heatmap": "reports/figures/02_correlation_heatmap.png",
+    "efficiency_overview": "reports/figures/03_efficiency_overview.png",
+    "label_rule": "reports/figures/04_label_rule.png",
+    "machine_scorecard": "reports/figures/05_machine_scorecard.png",
+    "cross_metric": "reports/figures/06_cross_metric_diagnostics.png",
+    "ablation": "reports/figures/07_feature_ablation.png",
+    "temporal": "reports/figures/08_temporal_patterns.png",
+    "health_components": "reports/figures/09_health_components.png"
+  }
+}

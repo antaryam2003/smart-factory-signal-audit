@@ -11,7 +11,7 @@
 | Field | Value | Status |
 |---|---|---|
 | **GitHub Repository Link** | https://github.com/antaryam2003/smart-factory-signal-audit | ✅ Public |
-| **Research paper link** | https://claude.ai/code/artifact/ec7edebe-7808-4632-a4ca-ebe7e9e601a4 | ⚠️ Private — share before submitting |
+| **Research paper link** | https://claude.ai/code/artifact/ec7edebe-7808-4632-a4ca-ebe7e9e601a4 | ✅ Public |
 | **Deployed project link** | https://smart-factory-signal-audit.streamlit.app | ✅ Live |
 | **Project Feedback video link** | *(to be recorded)* | ⬜ Pending |
 
